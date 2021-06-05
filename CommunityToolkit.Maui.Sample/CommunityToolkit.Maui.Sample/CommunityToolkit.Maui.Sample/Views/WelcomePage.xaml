@@ -24,8 +24,8 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Frame
-                                Margin="{StaticResource ContentPadding}"
-                                Style="{StaticResource card}">
+                                Margin="20, 0"
+                                Style="{StaticResource Card}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                         Command="{Binding NavigateCommand, Source={x:Reference Page}}" 

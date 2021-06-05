@@ -4,7 +4,7 @@
     x:Class="CommunityToolkit.Maui.Sample.App">
     <Application.Resources>
         <ResourceDictionary>
-            
+
             <!--  Colors  -->
             <Color x:Key="AppBackgroundColor">#FAFAFA</Color>
             <Color x:Key="PrimaryColor">#FAFAFA</Color>
@@ -16,15 +16,21 @@
             <Color x:Key="DarkLabelTextColor">#000000</Color>
             <Color x:Key="DarkLabelPlaceholderColor">#333d47</Color>
             <Color x:Key="SoftFrameBackgroundColor">#ecf0f9</Color>
-            
+
             <!--  Styles  -->
             <Style x:Key="LabelWelcomeHeader" TargetType="Label">
                 <Setter Property="FontSize" Value="Title" />
                 <Setter Property="TextColor" Value="{StaticResource HeadingLabelTextColor}" />
             </Style>
-            
+
             <Style x:Key="LabelSectionHeader" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource HeadingLabelTextColor}" />
+            </Style>
+
+            <Style x:Key="Card" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#ffffff" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="HasShadow" Value="True" />
             </Style>
 
         </ResourceDictionary>
