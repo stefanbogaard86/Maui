@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="CommunityToolkit.Maui.Sample.Views.WelcomePage"
     xmlns:pages="clr-namespace:CommunityToolkit.Maui.Sample.Views.Base" 
-    xmlns:vm="clr-namespace:CommunityToolkit.Maui.Sample.ViewModels">
+    xmlns:vm="clr-namespace:CommunityToolkit.Maui.Sample.ViewModels"
+	x:Name="Page"
+    Title="Welcome">
     <pages:BasePage.BindingContext>
         <vm:WelcomeViewModel />
     </pages:BasePage.BindingContext>
