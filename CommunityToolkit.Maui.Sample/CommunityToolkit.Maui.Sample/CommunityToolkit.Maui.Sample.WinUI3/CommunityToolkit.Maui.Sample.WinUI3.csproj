@@ -53,4 +53,50 @@
 		<MauiFont Include="..\CommunityToolkit.Maui.Sample\Resources\Fonts\**\*.ttf" Link="Resources\Fonts\%(RecursiveDir)%(FileName)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Behaviors\BehaviorsGalleryPage.xaml.cs" Link="Behaviors\BehaviorsGalleryPage.xaml.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Converters\ConvertersGalleryPage.xaml.cs" Link="Converters\ConvertersGalleryPage.xaml.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Effects\EffectsGalleryPage.xaml.cs" Link="Effects\EffectsGalleryPage.xaml.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Extensions\ExtensionsGalleryPage.xaml.cs" Link="Extensions\ExtensionsGalleryPage.xaml.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Models\SectionModel.cs" Link="Models\SectionModel.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\ViewModels\Base\BaseGalleryViewModel.cs" Link="ViewModels\Base\BaseGalleryViewModel.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\ViewModels\Base\BaseViewModel.cs" Link="ViewModels\Base\BaseViewModel.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\ViewModels\WelcomeViewModel.cs" Link="ViewModels\WelcomeViewModel.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Views\Base\BaseNavigationPage.cs" Link="Views\Base\BaseNavigationPage.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Views\Base\BasePage.cs" Link="Views\Base\BasePage.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Views\ViewsGalleryPage.xaml.cs" Link="Views\ViewsGalleryPage.xaml.cs" />
+	  <Compile Include="..\CommunityToolkit.Maui.Sample\Views\WelcomePage.xaml.cs" Link="Views\WelcomePage.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Behaviors\" />
+	  <Folder Include="Converters\" />
+	  <Folder Include="Effects\" />
+	  <Folder Include="Extensions\" />
+	  <Folder Include="ViewModels\Base\" />
+	  <Folder Include="Views\Base\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Behaviors\BehaviorsGalleryPage.xaml" Link="Behaviors\BehaviorsGalleryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Converters\ConvertersGalleryPage.xaml" Link="Converters\ConvertersGalleryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Effects\EffectsGalleryPage.xaml" Link="Effects\EffectsGalleryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Extensions\ExtensionsGalleryPage.xaml" Link="Extensions\ExtensionsGalleryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Views\ViewsGalleryPage.xaml" Link="Views\ViewsGalleryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Include="..\CommunityToolkit.Maui.Sample\Views\WelcomePage.xaml" Link="Views\WelcomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
 </Project>

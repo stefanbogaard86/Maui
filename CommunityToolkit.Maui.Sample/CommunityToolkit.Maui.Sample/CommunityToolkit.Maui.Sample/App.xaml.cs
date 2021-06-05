@@ -1,4 +1,6 @@
-﻿using Microsoft.Maui;
+﻿using CommunityToolkit.Maui.Sample.Views;
+using CommunityToolkit.Maui.Sample.Views.Base;
+using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using Application = Microsoft.Maui.Controls.Application;
@@ -16,10 +18,10 @@ namespace CommunityToolkit.Maui.Sample
 		{
 			Microsoft.Maui.Controls.Compatibility.Forms.Init(activationState);
 
-			this.On<Microsoft.Maui.Controls.PlatformConfiguration.Windows>()
+			On<Microsoft.Maui.Controls.PlatformConfiguration.Windows>()
 				.SetImageDirectory("Assets");
 
-			return new Microsoft.Maui.Controls.Window(new MainPage());
+			return new Window(new BaseNavigationPage(new WelcomePage()));
 		}
 	}
 }
