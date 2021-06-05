@@ -21,7 +21,7 @@ namespace CommunityToolkit.Maui.Sample
 			On<Microsoft.Maui.Controls.PlatformConfiguration.Windows>()
 				.SetImageDirectory("Assets");
 
-			return new Window(new BaseNavigationPage(new WelcomePage()));
+			return new Window(new WelcomePage());
 		}
 	}
 }

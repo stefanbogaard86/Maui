@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31220.234
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.Maui.Sample", "CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample.csproj", "{D44512D3-5F00-4FF2-B8D3-A93561A9C55A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.Maui.Sample", "CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample.csproj", "{D44512D3-5F00-4FF2-B8D3-A93561A9C55A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.Maui.Sample.WinUI3", "CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample.WinUI3\CommunityToolkit.Maui.Sample.WinUI3.csproj", "{824E6EEC-931C-420B-B1D1-C6ABAF26F394}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.Maui.Sample.WinUI3", "CommunityToolkit.Maui.Sample.WinUI3\CommunityToolkit.Maui.Sample.WinUI3.csproj", "{824E6EEC-931C-420B-B1D1-C6ABAF26F394}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CommunityToolkit.Maui.Sample.WinUI3 (Package)", "CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample.WinUI3 (Package)\CommunityToolkit.Maui.Sample.WinUI3 (Package).wapproj", "{8B5055F9-CE6D-4845-B27E-29B675430911}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CommunityToolkit.Maui.Sample.WinUI3 (Package)", "CommunityToolkit.Maui.Sample.WinUI3 (Package)\CommunityToolkit.Maui.Sample.WinUI3 (Package).wapproj", "{8B5055F9-CE6D-4845-B27E-29B675430911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
