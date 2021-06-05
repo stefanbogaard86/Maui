@@ -1,9 +1,8 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
+﻿using CommunityToolkit.Maui.Sample.Views.Base;
 
 namespace CommunityToolkit.Maui.Sample.Views
 {
-    public partial class WelcomePage : ContentPage, IPage
+    public partial class WelcomePage : BasePage
     {
         public WelcomePage()
         {

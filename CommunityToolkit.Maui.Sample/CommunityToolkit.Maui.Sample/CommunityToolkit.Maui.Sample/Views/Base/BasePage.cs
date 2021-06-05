@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Sample.Models;
+using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System;
@@ -6,7 +7,7 @@ using System.Windows.Input;
 
 namespace CommunityToolkit.Maui.Sample.Views.Base
 {
-    public class BasePage : ContentPage
+    public class BasePage : ContentPage, IPage
     {
         ICommand navigateCommand;
 
