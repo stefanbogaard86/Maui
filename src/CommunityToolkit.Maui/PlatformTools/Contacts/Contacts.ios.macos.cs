@@ -17,13 +17,13 @@ namespace CommunityToolkit.Maui.PlatformTools
         static Task<Contact> PlatformPickContactAsync() => throw ExceptionUtils.NotSupportedOrImplementedException;
 
 #elif __IOS__
-		static Task<Contact> PlatformPickContactAsync()
+		static Task<Contact?> PlatformPickContactAsync()
 		{
 			var uiView = Platform.GetCurrentUIViewController();
 			if (uiView == null)
 				throw new ArgumentNullException($"The View Controller can't be null.");
 
-			var source = new TaskCompletionSource<Contact>();
+			var source = new TaskCompletionSource<Contact?>();
 
 			var picker = new CNContactPickerViewController
 			{
@@ -46,7 +46,7 @@ namespace CommunityToolkit.Maui.PlatformTools
 		}
 
 #endif
-		static Task<IEnumerable<Contact>> PlatformGetAllAsync(CancellationToken cancellationToken)
+		static Task<IEnumerable<Contact?>> PlatformGetAllAsync(CancellationToken cancellationToken)
 		{
 			var keys = new[]
 			{
@@ -64,11 +64,11 @@ namespace CommunityToolkit.Maui.PlatformTools
 			var store = new CNContactStore();
 			var containers = store.GetContainers(null, out _);
 			if (containers == null)
-				return Task.FromResult<IEnumerable<Contact>>(Array.Empty<Contact>());
+				return Task.FromResult(Enumerable.Empty<Contact?>());
 
 			return Task.FromResult(GetEnumerable());
 
-			IEnumerable<Contact> GetEnumerable()
+			IEnumerable<Contact?> GetEnumerable()
 			{
 				foreach (var container in containers)
 				{
@@ -85,15 +85,15 @@ namespace CommunityToolkit.Maui.PlatformTools
 			}
 		}
 
-		internal static Contact ConvertContact(CNContact contact)
+		internal static Contact? ConvertContact(CNContact? contact)
 		{
 			if (contact == null)
 				return default;
 
 			var phones = contact.PhoneNumbers?.Select(
-				item => new ContactPhone(item?.Value?.StringValue));
+				item => new ContactPhone(item.Value.StringValue));
 			var emails = contact.EmailAddresses?.Select(
-				item => new ContactEmail(item?.Value?.ToString()));
+				item => new ContactEmail(item.Value.ToString()));
 
 			return new Contact(
 				contact.Identifier,
@@ -109,7 +109,7 @@ namespace CommunityToolkit.Maui.PlatformTools
 #if __IOS__
 		class ContactPickerDelegate : CNContactPickerDelegate
 		{
-			public ContactPickerDelegate(Action<CNContact> didSelectContactHandler) =>
+			public ContactPickerDelegate(Action<CNContact?> didSelectContactHandler) =>
 				DidSelectContactHandler = didSelectContactHandler;
 
 			public ContactPickerDelegate(IntPtr handle)
@@ -117,7 +117,7 @@ namespace CommunityToolkit.Maui.PlatformTools
 			{
 			}
 
-			public Action<CNContact> DidSelectContactHandler { get; }
+			public Action<CNContact?>? DidSelectContactHandler { get; }
 
 			public override void ContactPickerDidCancel(CNContactPickerViewController picker)
 			{

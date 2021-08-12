@@ -123,7 +123,7 @@ namespace CommunityToolkit.Maui.Behaviors
 			eventHandler = null;
 		}
 
-		[Preserve(Conditional = true)]
+		[Foundation.Preserve(Conditional = true)]
 		protected virtual void OnTriggerHandled(object? sender = null, object? eventArgs = null)
 		{
 			var parameter = CommandParameter

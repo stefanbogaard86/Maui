@@ -30,7 +30,7 @@ namespace CommunityToolkit.Maui.PlatformTools
             if (result?.Data == null)
                 return null;
 
-            using var cursor = ContentResolver.Query(result?.Data, null, null, null, null);
+            using var cursor = ContentResolver.Query(result.Data, null, null, null, null);
             if (cursor?.MoveToFirst() != true)
                 return null;
 
@@ -39,6 +39,9 @@ namespace CommunityToolkit.Maui.PlatformTools
 
         static Task<IEnumerable<Contact>> PlatformGetAllAsync(CancellationToken cancellationToken)
         {
+            if (ContactsContract.Contacts.ContentUri is null)
+                throw new InvalidOperationException("ContactsContract.Contacts.ContentUri cannot be null");
+
             var cursor = ContentResolver.Query(ContactsContract.Contacts.ContentUri, null, null, null, null);
             return Task.FromResult(GetEnumerable());
 
@@ -62,9 +65,12 @@ namespace CommunityToolkit.Maui.PlatformTools
         static Contact GetContact(ICursor cursor)
         {
             var id = GetString(cursor, idCol);
+            if (id == null)
+                throw new InvalidOperationException("id cannot be null");
+
             var displayName = GetString(cursor, displayNameCol);
-            var phones = GetNumbers(id)?.Select(p => new ContactPhone(p));
-            var emails = GetEmails(id)?.Select(e => new ContactEmail(e));
+            var phones = GetNumbers(id).Select(p => new ContactPhone(p));
+            var emails = GetEmails(id).Select(e => new ContactEmail(e));
             var (prefix, given, middle, family, suffix) = GetName(id);
 
             return new Contact(id, prefix, given, middle, family, suffix, phones, emails, displayName);
@@ -92,7 +98,13 @@ namespace CommunityToolkit.Maui.PlatformTools
                                                         ?.AppendQueryParameter(ContactsContract.RemoveDuplicateEntries, "1")
                                                         ?.Build();
 
+            if (uri is null)
+                return Enumerable.Empty<string>();
+
             var cursor = ContentResolver.Query(uri, null, $"{contactIdCol}=?", new[] { id }, null);
+
+            if (cursor is null)
+                return Enumerable.Empty<string>();
 
             return ReadCursorItems(cursor, CommonDataKinds.Email.Address);
         }
@@ -112,10 +124,13 @@ namespace CommunityToolkit.Maui.PlatformTools
             cursor?.Close();
         }
 
-        static (string Prefix, string Given, string Middle, string Family, string Suffix) GetName(string id)
+        static (string? Prefix, string? Given, string? Middle, string? Family, string? Suffix) GetName(string id)
         {
             var selection = $"{mimetypeCol}=? AND {contactIdCol}=?";
             var selectionArgs = new string[] { StructuredName.ContentItemType, id };
+
+            if (ContactsContract.Data.ContentUri is null)
+                return (null, null, null, null, null);
 
             using var cursor = Platform.ContentResolver.Query(
                 ContactsContract.Data.ContentUri,
@@ -135,7 +150,7 @@ namespace CommunityToolkit.Maui.PlatformTools
                 GetString(cursor, StructuredName.Suffix));
         }
 
-        static string GetString(ICursor cursor, string column) =>
+        static string? GetString(ICursor cursor, string column) =>
             cursor.GetString(cursor.GetColumnIndex(column));
     }
 }
