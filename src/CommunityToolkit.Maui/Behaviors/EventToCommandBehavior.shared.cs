@@ -1,10 +1,7 @@
-﻿#nullable enable
-using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Behaviors.Internals;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Internals;
 
 namespace CommunityToolkit.Maui.Behaviors
 {
@@ -106,7 +103,7 @@ namespace CommunityToolkit.Maui.Behaviors
 				throw new ArgumentException($"{nameof(EventToCommandBehavior)}: Couldn't resolve the event.", nameof(EventName));
 
 			_ = eventInfo.EventHandlerType ?? throw new NullReferenceException();
-			_ = eventHandlerMethodInfo ?? throw new NullReferenceException($"{nameof(eventHandlerMethodInfo)} is null, maybe it's a linker issue, please open a bug here: https://github.com/xamarin/XamarinCommunityToolkit/issues/");
+			_ = eventHandlerMethodInfo ?? throw new NullReferenceException($"{nameof(eventHandlerMethodInfo)} is null, maybe it's a linker issue, please open a bug here: https://github.com/communiytoolkit/maui/issues/");
 
 			eventHandler = eventHandlerMethodInfo.CreateDelegate(eventInfo.EventHandlerType, this) ??
 				throw new ArgumentException($"{nameof(EventToCommandBehavior)}: Couldn't create event handler.", nameof(EventName));
@@ -123,7 +120,7 @@ namespace CommunityToolkit.Maui.Behaviors
 			eventHandler = null;
 		}
 
-		[Foundation.Preserve(Conditional = true)]
+		[Microsoft.Maui.Controls.Internals.Preserve(Conditional = true)]
 		protected virtual void OnTriggerHandled(object? sender = null, object? eventArgs = null)
 		{
 			var parameter = CommandParameter
