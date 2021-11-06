@@ -18,7 +18,9 @@
             <Frame Margin="{StaticResource ContentPadding}"
                    CornerRadius="10">
 
-                <Grid ColumnDefinitions="2*, *">
+                <Grid ColumnDefinitions="2*, *"
+                      RowDefinitions="Auto,Auto,Auto"
+                      RowSpacing="5">
                     <Label Text="User stopped typing time threshold (in ms)"
                            VerticalTextAlignment="Center" />
                     <Entry x:Name="TimeThresholdSetting"
